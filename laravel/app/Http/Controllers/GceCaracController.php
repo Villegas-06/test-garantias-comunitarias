@@ -53,7 +53,7 @@ class GceCaracController extends Controller
     {
         $caracteristicas = Gce_Caracteristicas::find($id);
         if($caracteristicas){
-            return response()->json($user);
+            return response()->json($caracteristicas);
         }else{
             return response()->json(['error => caracteristicas not found'], 404);
         }
@@ -68,13 +68,43 @@ class GceCaracController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $caracteristicas = Gce_Caracteristicas::find($id);
-        if ($caracteristicas) {
-            $caracteristicas->update($request->all());
-            return response()->json($caracteristicas);
-        } else {
-            return response()->json(['error' => 'caracteristicas not found'], 404);
-        }
+
+        $equipos = Gce_Caracteristicas::find($id);
+
+
+        $equipos->gce_nombre_equipo = $request->input('gce_nombre_equipo');
+        $equipos->gce_board = $request->input('gce_board');
+        $equipos->gce_case = $request->input('gce_case');
+        $equipos->gce_procesador = $request->input('gce_procesador');
+        $equipos->gce_teclado = $request->input('gce_teclado');
+        $equipos->gce_mouse = $request->input('gce_mouse');
+        $equipos->gce_pantalla = $request->input('gce_pantalla');
+        $equipos->gce_estado = $request->input('gce_estado');
+
+        $equipos->save();
+
+        return response()->json(['message' => 'equipos updated successfully'], 200);
+
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updateStatus(Request $request, $id)
+    {
+
+        $equipos = Gce_Caracteristicas::find($id);
+
+        $equipos->gce_estado = $request->input('gce_estado');
+
+        $equipos->save();
+
+        return response()->json(['message' => 'status updated successfully'], 200);
+
     }
 
     /**
@@ -85,12 +115,14 @@ class GceCaracController extends Controller
      */
     public function destroy($id)
     {
-        $caracteristicas = Gce_Caracteristicas::find($id);
-        if ($caracteristicas) {
-            $caracteristicas->delete();
-            return response()->json(['message' => 'caracteristicas deleted']);
+        $equipos = Gce_Caracteristicas::find($id);
+        if ($equipos) {
+        $equipos->delete();
+            return response()->json(['mensaje' => 'Entrada eliminada exitosamente.']);
         } else {
-            return response()->json(['error' => 'caracteristicas not found'], 404);
+            return response()->json(['mensaje' => 'No se pudo eliminar la entrada.']);
         }
     }
+
+
 }

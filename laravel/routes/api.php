@@ -22,7 +22,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/caracteristicas', [GceCaracController::class, 'index']);
 Route::get('/caracteristicas/{id}', [GceCaracController::class, 'show']);
 Route::post('/sendPc', [GceCaracController::class, 'store']);
-Route::put('/caracteristicas/{id}', [GceCaracController::class, 'update']);
-Route::delete('/caracteristicas/{id}', [GceCaracController::class, 'destroy']);
+Route::post('/editPc/{id}', [GceCaracController::class, 'update']);
+Route::post('/editStatus/{id}', [GceCaracController::class, 'updateStatus']);
+Route::delete('/deletPc/{id}', [GceCaracController::class, 'destroy']);
 
 ?>

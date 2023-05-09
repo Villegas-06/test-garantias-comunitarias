@@ -1,0 +1,116 @@
+<div class="container">
+  <div
+    class="modal fade"
+    id="editRegistroComputadores"
+    tabindex="-1"
+    aria-labelledby="editRegistroComputadoresLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editRegistroComputadoresLabel">
+            Editar Computador
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form id={{itemId}} class="row editForm" (ngSubmit)="editForm()">
+            <div class="mb-3 col-lg-4 col-sm-6">
+              <input
+                required
+                class="form-control"
+                type="text"
+                name="gce_nombre_equipo"
+                placeholder="Nombre del equipo"
+                [(ngModel)]="gce_nombre_equipo"
+              />
+            </div>
+            <!-- gce_board -->
+            <div class="mb-3 col-lg-4 col-sm-6">
+              <input
+                required
+                class="form-control"
+                type="text"
+                name="gce_board"
+                placeholder="Board"
+                [(ngModel)]="gce_board"
+              />
+            </div>
+            <!-- gce_case -->
+            <div class="mb-3 col-lg-4 col-sm-6">
+              <input
+                required
+                class="form-control"
+                type="text"
+                name="gce_case"
+                placeholder="Case"
+                [(ngModel)]="gce_case"
+              />
+            </div>
+            <!-- gce_procesador -->
+            <div class="mb-3 col-lg-4 col-sm-6">
+              <input
+                required
+                class="form-control"
+                type="text"
+                name="gce_procesador"
+                placeholder="Procesador"
+                [(ngModel)]="gce_procesador"
+              />
+            </div>
+            <!-- gce_teclado -->
+            <div class="mb-3 col-lg-4 col-sm-6">
+              <input
+                required
+                class="form-control"
+                type="text"
+                name="gce_teclado"
+                placeholder="Teclado"
+                [(ngModel)]="gce_teclado"
+              />
+            </div>
+            <!-- gce_mouse -->
+            <div class="mb-3 col-lg-4 col-sm-6">
+              <input
+                required
+                class="form-control"
+                type="text"
+                name="gce_mouse"
+                placeholder="Mouse"
+                [(ngModel)]="gce_mouse"
+              />
+            </div>
+            <!-- gce_pantalla -->
+            <div class="mb-3 col-sm-6 col-lg-6">
+              <input
+                required
+                class="form-control"
+                type="text"
+                name="gce_pantalla"
+                placeholder="Pantalla"
+                [(ngModel)]="gce_pantalla"
+              />
+            </div>
+            <!-- gce_estado -->
+            <label class="mb-3 col-sm-6 col-lg-6 position-relative">
+              <div class="position-absolute">Estado</div>
+              <select class="form-select" name="gce_estado"  [(ngModel)]="gce_estado">
+                <option value="0">Inactivo</option>
+                <option value="1" selected>Activo</option>
+              </select>
+            </label>
+            <button type="submit" class="btn btn-primary" id="btnEdit">
+              <p>Guardar</p>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

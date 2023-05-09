@@ -155,7 +155,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let obj of data" id="{{ obj.gce_id }}">
+          <tr *ngFor="let obj of data"
+          id="{{ obj.gce_id }}"
+          class="contItems"
+          [ngStyle]="{ 'background-color': obj.gce_estado === 0 ? '#FF4269' : (obj.gce_estado === 1 ? 'transparent' : '') }"
+          >
             <td>{{ obj.gce_nombre_equipo }}</td>
             <td>{{ obj.gce_board }}</td>
             <td>{{ obj.gce_case }}</td>
@@ -166,12 +170,43 @@
             <td>{{ obj.gce_teclado }}</td>
             <td>{{ obj.gce_mouse }}</td>
             <td>{{ obj.gce_pantalla }}</td>
-            <td>{{ obj.gce_estado }}</td>
-            <td><button>Editar</button></td>
-            <td><button>Eliminar</button></td>
+            <td>
+              <div class="switch" [ngClass]="{ 'active': obj.gce_estado === 1, 'switch-off': obj.gce_estado === 0}" (click)="toggleSwitch(obj.gce_id)">
+                <div class="slider"></div>
+              </div>
+            </td>
+            <!--<td>{{ obj.gce_estado }}</td>-->
+            <td>
+              <button
+              id="editEquipo"
+                data-bs-toggle="modal"
+                data-bs-target="#editRegistroComputadores"
+                (click)="openModalEdit(obj.gce_id)"
+                class=
+              >
+              <span class="material-symbols-outlined">
+                edit
+                </span>
+              </button>
+            </td>
+            <td>
+              <button
+
+              id="deleteEquipo"
+                data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop"
+                (click)="openModalDelete(obj.gce_id)"
+              >
+              <span class="material-symbols-outlined">
+                delete
+                </span>
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>
+      <app-modal-edit-computadores #modal></app-modal-edit-computadores>
+      <app-modal-delete-computadores #modalDelete></app-modal-delete-computadores>
     </div>
   </div>
 </div>

@@ -1,0 +1,37 @@
+<div class="container">
+  <div
+    class="modal fade"
+    id="staticBackdrop"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    tabindex="-1"
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Eliminar equipo</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form id="{{ itemId }}" class="row formDelete" (ngSubmit)="deleteForm()">
+            <div class="mb-3 col">
+              <p>¿Estás Seguro de eliminar este equipo?</p>
+            </div>
+            <div class="col-12 mb-3 display-grid">
+              <button type="submit" class="btn btn-danger">
+                Eliminar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

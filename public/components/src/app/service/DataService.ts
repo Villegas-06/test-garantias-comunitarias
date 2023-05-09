@@ -7,12 +7,23 @@ import { Observable } from 'rxjs';
 })
 
 export class DataService {
+
   private apiUrl = 'http://localhost:8000/api/caracteristicas';
+
+  elementos: any[] = [
+    this.apiUrl
+  ];
 
   constructor(private http: HttpClient) {}
 
   getData(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
   }
+
+  obtenerElemento(id: string): any {
+    return this.elementos.find(e => e.id === id);
+  }
+
+
 
 }

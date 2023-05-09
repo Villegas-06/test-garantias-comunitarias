@@ -1,0 +1,17 @@
+#btnEdit {
+  border-radius: 8px;
+
+  margin-left: 13px;
+  margin-top: 5px;
+
+  width: 140px;
+  height: 47px;
+  position: relative;
+}
+
+#btnEdit p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
