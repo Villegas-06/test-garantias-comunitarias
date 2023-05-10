@@ -160,16 +160,16 @@
           class="contItems"
           [ngStyle]="{ 'background-color': obj.gce_estado === 0 ? '#FF4269' : (obj.gce_estado === 1 ? 'transparent' : '') }"
           >
-            <td>{{ obj.gce_nombre_equipo }}</td>
-            <td>{{ obj.gce_board }}</td>
-            <td>{{ obj.gce_case }}</td>
-            <td>{{ obj.gce_procesador }}</td>
-            <td>{{ obj.gce_grafica }}</td>
-            <td>{{ obj.gce_ram }}</td>
-            <td>{{ obj.gce_disco_duro }}</td>
-            <td>{{ obj.gce_teclado }}</td>
-            <td>{{ obj.gce_mouse }}</td>
-            <td>{{ obj.gce_pantalla }}</td>
+            <td>{{ obj.gce_nombre_equipo | titlecase }}</td>
+            <td>{{ obj.gce_board | titlecase }}</td>
+            <td>{{ obj.gce_case | titlecase }}</td>
+            <td>{{ obj.gce_procesador | titlecase  }}</td>
+            <td>{{ obj.gce_grafica | titlecase  }}</td>
+            <td>{{ obj.gce_ram | titlecase  }}</td>
+            <td>{{ obj.gce_disco_duro | titlecase  }}</td>
+            <td>{{ obj.gce_teclado | titlecase  }}</td>
+            <td>{{ obj.gce_mouse | titlecase  }}</td>
+            <td>{{ obj.gce_pantalla | titlecase  }}</td>
             <td>
               <div class="switch" [ngClass]="{ 'active': obj.gce_estado === 1, 'switch-off': obj.gce_estado === 0}" (click)="toggleSwitch(obj.gce_id)">
                 <div class="slider"></div>
