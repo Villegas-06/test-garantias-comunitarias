@@ -60,9 +60,12 @@ export class ModalEditComputadoresComponent implements OnInit {
         (error) => console.log(error)
       );
 
-    this.loadData();
+      alert("Registro Actualizado");
 
-    window.location.reload();
+      setTimeout(() =>{
+        location.reload();
+      }, 1000)
+
   }
 
   ngOnInit(): void {}

@@ -31,14 +31,19 @@ export class ModalDeleteComputadoresComponent implements OnInit {
 
   deleteForm() {
     const gce_id = this.elRef.nativeElement.querySelector('.formDelete').id;
-    console.log(gce_id);
 
     this.http.delete(`http://localhost:8000/api/deletPc/${gce_id}`).subscribe(
       (response) => console.log(response),
       (error) => console.log(error)
     );
 
-    this.loadData();
+    alert("Registro Eliminado");
+
+    setTimeout(() =>{
+      location.reload();
+    }, 1000)
+
+
   }
 
   ngOnInit(): void {}
